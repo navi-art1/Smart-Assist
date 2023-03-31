@@ -1,182 +1,167 @@
-import React from 'react';
-import { StatusBar,useState } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground,Image,TextInput, Switch, ScrollView, DatePickerIOS} from 'react-native';
-
-
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Switch, ScrollView, StatusBar, Platform } from 'react-native';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Logo from "../smart-assistance/src/fondo.jpeg";
-import { DatePickerIOSBase } from 'react-native';
+import qr from "./src/qr.png";
+import user from "./src/user.png";
+import menu from "./src/menu.png";
+import subir from "./src/subir.png"
 
 
+const statusBarHeight = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 
 export default function App() {
-
-
   const Log = Logo;
-
+  const qr1 = qr;
+  const user1 = user;
+  const menu1 = menu;
+  const subir1 = subir;
 
 
   return (
-    <View style={styles.container}>
-
+    <View style={[styles.container, { marginTop: statusBarHeight }]}>
+      <StatusBar backgroundColor="black" />
       <View style={styles.subContainer1}>
-        <ImageBackground source={Log} resizeMode={'cover'} style={styles.image} >
 
-        <View style={{flexDirection:'row',alignItems:'center', justifyContent:'space-between'}}>
+        <View style={{ flex:1}}>
+          <View style={styles.boton}>
+            <Image
+              source={menu1}
+              style={{ width: '50%', height: '80%' }}
+              resizeMode={'cover'}
+            />
+          </View>
+        </View>
 
-            <View style= {styles.boton}>
-              <Text>
-                M
-              </Text>
-              
-            </View>
+        <View style={{flex:1,alignItems:'center'}} >
+          <Text style={{color:'white',fontSize:20, fontWeight:'bold'}}  >Perfil</Text>
+        </View>
 
-            <View style = {{backgroundColor:'white', paddingHorizontal:6 ,paddingVertical:6 ,borderWidth:2 ,borderRadius:12, height:44}}>
-              <Text style={{color : '#0E294B', fontSize:20, fontWeight: 'bold' }} >
-                Smart City
-              </Text>
-            </View>
-
-            <View style= {styles.boton}>
-              <Text>
-                U
-              </Text>
-              
-            </View>
-            
+        <View style={{flex:1}}>
+          <Text> </Text>
         </View>
 
 
-        </ImageBackground>
+
+    
 
       </View>
 
-        <View style={styles.subContainer2}>
-          <View  style={{color : '#0E294B', fontSize:20, fontWeight: 'bold', alignItems:'center',gap:10 , paddingVertical:10 }}>
-            <Text> Domingo 26 - Marzo</Text>
-            <Text> 16:40:25</Text>
-          </View>
-
-
-        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
-          <Text>Hora de Entrada</Text>
-          <View style={styles.containerinput}>
-
-              <TextInput style={styles.input}
-                placeholder="08:00" 
-              />
-          </View>
-        </View>
-
-
-        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
-          <Text>Hora de Salida</Text>
-          <View style={styles.containerinput}>
-              <TextInput style={styles.input}
-                placeholder="16:00" 
-              />
-          </View>
-        </View>
-
-        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
-          <Text>Hora totales</Text>
-          <View style={styles.containerinput}>
-              <TextInput style={styles.input}
-                placeholder="44" 
-              />
-          </View>
-        </View>
-
-
-        <View style={{flexDirection:'row', justifyContent:'space-between', width:'100%',padding:30, marginTop:160 }}>
-          <View>
-            <View style= {styles.botonCarrusel}>
-              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >L</Text>
-            </View>
-
-          </View>
-
-          <View style={{flexDirection:'row', justifyContent:'space-evenly', gap:20}} > 
-            <View style= {styles.botonCarrusel}>
-              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >H</Text>
-            </View>
-            <View style= {styles.botonCarrusel}>
-              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >N</Text>
-            </View>
-            <View style= {styles.botonCarrusel}>
-              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >M</Text>
-            </View>
-
-
-          </View>
-
+      <View style={styles.subContainer2}>
+        <View style={styles.boton2}>
+          <Image
+            source={user1}
+            style={{ width: '100%', height: '100%' }}
+            resizeMode={'cover'}
+          />
         </View>
 
 
 
+        <View style={styles.qr}>
+        <Image
+          source={qr1}
+          style={{ width: '100%', height: '100%' }}
+          resizeMode={'cover'}
+        />
+
+        </View>
+
+        <View style={styles.info}>
+          <View style={styles.ContainerInfo}>
+            <Text style={styles.text}> Nombres </Text>
+            <View style={styles.containerinput}>
+              <Text>Juan Pedro</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.info}>
+          <View style={styles.ContainerInfo}>
+            <Text style={styles.text}> Apellido </Text>
+            <View style={styles.containerinput}>
+              <Text> Rodriguez Santos</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.info}>
+          <View style={styles.ContainerInfo}>
+            <Text style={styles.text}> Email </Text>
+            <View style={styles.containerinput}>
+              <Text>cticuni@uni.pe</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.info}>
+          <View style={styles.ContainerInfo}>
+            <Text style={styles.text}> Numero de documento </Text>
+            <View style={styles.containerinput}>
+              <Text>7654321</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      <View style = {{flex : 1, paddingHorizontal: 20 , paddingVertical: 30, justifyContent:'flex-end', alignItems:'flex-end'}}>
+      <View style={styles.botonsubir}>
+            <Image
+              source={subir1}
+              style={{ width: '70%', height: '70%'}}
+              resizeMode={'cover'}
+            />
+          </View>
+      </View>
 
 
 
 
-
-
-
-
-
-
-        </View>    
+      <ExpoStatusBar style="auto" />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ececec',
   },
 
-  image:{
-    flex:1,
-    borderRadius:60,
-  
-    
 
-    padding:30
-  },
 
   subContainer1: {
-    flex:0.3,
-    overflow: 'hidden',
     borderBottomWidth:3,
-    borderColor:'#0f294c'
+    borderColor:'#0f294c',
+    backgroundColor:'#93182a',
+    padding:15,
+    alignItems:'center',
+    flexDirection:'row',
+    justifyContent:'space-between'
 
   },
 //////////////////////////////////////////////////////////////////////////////////
   subContainer2: {
-    flex:0.70,
-    
     width: '100%',
-
     backgroundColor: '#ececec',
     paddingTop:40,
-    alignItems:'center'
-    
-    
+    alignItems:'center',
+    padding:30
 
   },
 
   info:{
 
     alignItems:'center',
-
+  
   },
-
+  
   ContainerInfo:{
     paddingVertical: 10,
     width: '80%',
     alignItems:'center'
-
+  
   },
-
+  
 
 
   text:{
@@ -184,25 +169,34 @@ const styles = StyleSheet.create({
     paddingLeft:16,
     alignSelf:'flex-start',
     fontSize:16
-
+  
   },
+
 
 
   containerinput:{
     height:40,
-    width:80,
+    width:300,
     backgroundColor:'white',
     borderRadius:16,
+    backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5, 
     justifyContent:'center',
-    alignItems:'center'
-    
+    paddingLeft:20
 
+  
   },
+
+  input:{
+    height:40,
+    width:300,
+    paddingLeft:16
+  },
+
 
   ContainerBoton:{
     flexDirection:'row',
@@ -214,8 +208,45 @@ const styles = StyleSheet.create({
   boton:{
     width:44,
     height:44,
-    backgroundColor:'#ececec',
+    backgroundColor:'#d9d9d9',
     borderRadius:50,
+    borderWidth:5,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center',
+
+  },
+
+  botonsubir:{
+    width:60,
+    height:60,
+    backgroundColor:'#d9d9d9',
+    borderRadius:50,
+    borderWidth:5,
+    borderColor:'#0f294c',
+    justifyContent:'center',
+    alignItems:'center',
+    
+
+  },
+
+  boton2:{
+    width:120,
+    height:120,
+    backgroundColor:'#d9d9d9',
+    borderRadius:60,
+    borderWidth:5,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+
+  qr:{
+    marginTop:20,
+    width:120,
+    height:120,
+    backgroundColor:'#ececec',
+ 
     borderWidth:5,
     borderColor:'white',
     justifyContent:'center',
@@ -234,38 +265,6 @@ const styles = StyleSheet.create({
   },
 
 
-
-
-  boton2:{
-    height:40,
-    width:250,
-    backgroundColor:'white',
-    borderRadius:16,
-    backgroundColor: '#0f294c',
-    alignSelf:'center',
-    alignItems:'center',
-    justifyContent:'center',
-    marginVertical:10,
-  },
-
-  text2:{
-    color: 'white',
-    fontWeight:'bold',
-    fontSize:18
-  },
-
-  containerTogle:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent:'center',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 10,
-    width: '80%',
-    alignSelf: 'center',
-  },
-
-  
 
 ///////////////////////////////////////////////////////////////////////////////
 
