@@ -43,7 +43,7 @@ export default function App() {
 
 
 
-    
+
 
       </View>
 
@@ -70,7 +70,7 @@ export default function App() {
         <View style={styles.info}>
           <View style={styles.ContainerInfo}>
             <Text style={styles.text}> Nombres </Text>
-            <View style={styles.containerinput}>
+            <View style={styles.containerInput}>
               <Text>Juan Pedro</Text>
             </View>
           </View>
@@ -79,7 +79,7 @@ export default function App() {
         <View style={styles.info}>
           <View style={styles.ContainerInfo}>
             <Text style={styles.text}> Apellido </Text>
-            <View style={styles.containerinput}>
+            <View style={styles.containerInput}>
               <Text> Rodriguez Santos</Text>
             </View>
           </View>
@@ -88,7 +88,7 @@ export default function App() {
         <View style={styles.info}>
           <View style={styles.ContainerInfo}>
             <Text style={styles.text}> Email </Text>
-            <View style={styles.containerinput}>
+            <View style={styles.containerInput}>
               <Text>cticuni@uni.pe</Text>
             </View>
           </View>
@@ -97,15 +97,15 @@ export default function App() {
         <View style={styles.info}>
           <View style={styles.ContainerInfo}>
             <Text style={styles.text}> Numero de documento </Text>
-            <View style={styles.containerinput}>
+            <View style={styles.containerInput}>
               <Text>7654321</Text>
             </View>
           </View>
         </View>
       </View>
 
-      <View style = {{flex : 1, paddingHorizontal: 20 , paddingVertical: 30, justifyContent:'flex-end', alignItems:'flex-end'}}>
-      <View style={styles.botonsubir}>
+      <View style = {{flex : 1, paddingHorizontal: 20 , paddingVertical: 20, justifyContent:'flex-end', alignItems:'flex-end'}}>
+      <View style={styles.botonSubir}>
             <Image
               source={subir1}
               style={{ width: '70%', height: '70%'}}
@@ -113,6 +113,120 @@ export default function App() {
             />
           </View>
       </View>
-      );
+
+
+      <ExpoStatusBar style="auto" />
+    </View>
+  );
 }
-      
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ececec',
+  },
+  subContainer1: {
+    borderBottomWidth: 3,
+    borderColor: '#0f294c',
+    backgroundColor: '#93182a',
+    padding: 15,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  subContainer2: {
+    width: '100%',
+    backgroundColor: '#ececec',
+    paddingTop: 40,
+    alignItems: 'center',
+    padding: 30
+  },
+  info: {
+    alignItems: 'center',
+    paddingVertical:10
+  },
+  containerInfo: {
+    paddingVertical: 10,
+    width: '80%',
+    alignItems: 'center',
+    borderWidth:5
+  },
+  text: {
+    color: '#0f294c',
+    paddingLeft: 16,
+    alignSelf: 'flex-start',
+    fontSize: 16
+  },
+  containerInput: {
+    height: 40,
+    width: 300,
+    borderRadius: 16,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: 'center',
+    paddingLeft: 20
+  },
+  input: {
+    height: 40,
+    width: 300,
+    paddingLeft: 16
+  },
+  containerBoton: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+  },
+  boton: {
+    width: 44,
+    height: 44,
+    backgroundColor: '#d9d9d9',
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  botonSubir: {
+    width: 60,
+    height: 60,
+    backgroundColor: '#d9d9d9',
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: '#0f294c',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  boton2: {
+    width: 120,
+    height: 120,
+    backgroundColor: '#d9d9d9',
+    borderRadius: 60,
+    borderWidth: 5,
+    borderColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  qr: {
+    marginTop: 20,
+    width: 120,
+    height: 120,
+    backgroundColor: '#ececec',
+    borderWidth: 5,
+    borderColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  botonCarrusel: {
+    width: 60,
+    height: 60,
+    backgroundColor: '#93182A',
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
