@@ -4,13 +4,16 @@ import { StyleSheet, Text, View, ImageBackground,Image,TextInput, Switch, Scroll
 
 
 import Logo from "../smart-assistance/src/Logo34.png";
-
+import admin from "./src/admin.png";
+import puerta from "./src/puerta.png";
 
 
 export default function App() {
 
 
   const Log = Logo;
+  const puerta1 = puerta;
+  const admin1 = admin;
 
 
 
@@ -58,10 +61,18 @@ export default function App() {
 
         <View style={styles.ContainerBoton}>
           <View style= {styles.boton}>
-            <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >P</Text>
+          <Image
+                source={puerta1}
+                style={{ width: '101%', height: '100%'}}
+                resizeMode={'cover'}
+                />
           </View>
           <View style= {styles.boton}>
-            <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >A</Text>
+          <Image
+                source={admin1}
+                style={{ width: '105%', height: '105%' }}
+                resizeMode={'cover'}
+                />
           </View>
         </View>
 
@@ -192,7 +203,8 @@ const styles = StyleSheet.create({
     borderWidth:5,
     borderColor:'white',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    overflow:'hidden'
   },
 
   boton2:{

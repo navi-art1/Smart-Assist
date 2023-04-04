@@ -1,86 +1,113 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Switch, ScrollView, StatusBar, Platform } from 'react-native';
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import Logo from "../smart-assistance/src/fondo.jpeg";
-import qr from "./src/qr.png";
-import user from "./src/user.png";
-import menu from "./src/menu.png";
-import subir from "./src/subir.png"
+import React from 'react';
+import { StatusBar,useState } from 'expo-status-bar';
+import { StyleSheet, Text, View, ImageBackground,Image,TextInput, Switch, ScrollView } from 'react-native';
 
 
-const statusBarHeight = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
+import Logo from "../smart-assistance/src/Logo34.png";
+import admin from "./src/admin.png";
+import puerta from "./src/puerta.png";
+
 
 export default function App() {
+
+
   const Log = Logo;
-  const qr1 = qr;
-  const user1 = user;
-  const menu1 = menu;
-  const subir1 = subir;
+  const puerta1 = puerta;
+  const admin1 = admin;
+
 
 
   return (
-    <View style={[styles.container, { marginTop: statusBarHeight }]}>
-      <StatusBar backgroundColor="black" />
+    <View style={styles.container}>
+
       <View style={styles.subContainer1}>
+        <ImageBackground source={Log} resizeMode={'cover'} style={styles.image} >
 
-        <View style={{ flex:0.9}}>
-          <View style={styles.boton}>
-            <Image
-              source={menu1}
-              style={{ width: '50%', height: '80%' }}
-              resizeMode={'cover'}
-            />
-          </View>
+
+        <View style = {{backgroundColor:'white', paddingHorizontal:6 ,paddingVertical:6 ,borderWidth:2 ,borderRadius:12}}>
+          <Text style={{color : '#0E294B', fontSize:20, fontWeight: 'bold' }} >
+            Smart City
+          </Text>
         </View>
-
-        <View style={{flex:1,alignItems:'center'}} >
-          <Text style={{color:'white',fontSize:20, fontWeight:'bold'}}>Mensajes</Text>
-        </View>
-
-        <View style={{flex:0.9}}>
-          <Text> </Text>
-        </View>
-
-
-
-
+        </ImageBackground>
 
       </View>
 
       <View style={styles.subContainer2}>
+        <View style={styles.info}>
+          <View style= {styles.ContainerInfo}>
 
-        <Text  style={{ fontSize:16, color:'#0f294c', width:'100%', marginBottom:10}} >Redactar</Text>
-          
-          <View style={{ fontSize:20, color:'#0f294c', width:'100%', paddingVertical:10}} >
-            <Text style={{ fontSize:20, color:'#0f294c'}} >De:</Text>
+            <Text style={styles.text}> Email </Text>
+            <View style={styles.containerinput}>
+              <TextInput style={styles.input}
+                placeholder="Ingrese su email"
+              />
+
+            </View>
+
           </View>
+        </View>
 
-          <View style={{ borderBottomColor: '#d9d9d9', borderBottomWidth: 1, width: '100%' }} />
-
-          <View style={{ fontSize:20, color:'#0f294c', width:'100%', paddingVertical:10}} >
-            <Text style={{ fontSize:20, color:'#0f294c'}} >Para:</Text>
+        <View style={styles.info}>
+          <View style= {styles.ContainerInfo}>
+            <Text style={styles.text}> Contraseña </Text>
+            <View style={styles.containerinput}>
+              <TextInput style={styles.input}
+                placeholder="********" secureTextEntry
+              />
+            </View>
           </View>
-          
-          <View style={{ borderBottomColor: '#d9d9d9', borderBottomWidth: 1, width: '100%' }} />
+        </View>
 
-          <View style={{ fontSize:20, color:'#0f294c', width:'100%', paddingVertical:10}} >
-            <Text style={{ fontSize:20, color:'#0f294c'}} >Asunto:</Text>
+        <View style={styles.ContainerBoton}>
+          <View style= {styles.boton}>
+          <Image
+                source={puerta1}
+                style={{ width: '101%', height: '100%'}}
+                resizeMode={'cover'}
+                />
           </View>
-          
-          <View style={{ borderBottomColor: '#d9d9d9', borderBottomWidth: 1, width: '100%' }} />
-
-          <View style={{ fontSize:20, color:'#0f294c', width:'100%', paddingVertical:10}} >
-            <Text style={{ fontSize:20, color:'#0f294c'}} >Redactar Correo:</Text>
+          <View style= {styles.boton}>
+          <Image
+                source={admin1}
+                style={{ width: '105%', height: '105%' }}
+                resizeMode={'cover'}
+                />
           </View>
-          
-          <View style={{ borderBottomColor: '#d9d9d9', borderBottomWidth: 1, width: '100%' }} />
-      
-      </View>
+        </View>
+
+        <View style = {styles.boton2}>
+          <Text style={styles.text2} >
+            INGRESAR
+          </Text>
+        </View>
+
+        <View style = {styles.containerTogle}> 
+          <Text style = {{color : '#0f294c', fontSize:16 }}>
+            Recuerdame
+          </Text>
+          <Switch>
+          </Switch>
+        </View>
+
+        <View style = {styles.containerTogle}> 
+          <Text style = {{color : '#0f294c', fontSize:14, paddingRight:10 }} >¿Has olvidado tu contraseña?</Text>
+          <Text style = {{color : '#93182a', fontSize:14, textDecorationLine: 'underline'}} >Click Aquí</Text>
+        </View>
+
+        <View style = {styles.containerTogle}> 
+          <Text style = {{color : '#0f294c', fontSize:12 }}  >Registrarse</Text>
+        </View>
 
 
 
 
-      <ExpoStatusBar style="auto" />
+
+
+
+
+
+      </View>    
     </View>
   );
 }
@@ -90,111 +117,128 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ececec',
   },
+
+  image:{
+    flex:1,
+    borderRadius:60,
+    justifyContent:'flex-end',
+    alignItems:'flex-end',
+    padding:30
+  },
+
   subContainer1: {
-    borderBottomWidth: 3,
-    borderColor: '#0f294c',
-    backgroundColor: '#93182a',
-    padding: 15,
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
+    flex:0.35,
+    borderBottomLeftRadius:40,
+    overflow: 'hidden',
+
   },
+//////////////////////////////////////////////////////////////////////////////////
   subContainer2: {
+    flex:0.65,
     width: '100%',
+
     backgroundColor: '#ececec',
-    paddingTop: 40,
-    alignItems: 'center',
-    padding: 30
+    paddingTop:40
+    
+    
+
   },
-  info: {
-    alignItems: 'center',
-    paddingVertical:10
+
+  info:{
+
+    alignItems:'center',
+
   },
-  containerInfo: {
+
+  ContainerInfo:{
     paddingVertical: 10,
     width: '80%',
-    alignItems: 'center',
-    borderWidth:5
+    alignItems:'center'
+
   },
-  text: {
+
+
+
+  text:{
     color: '#0f294c',
-    paddingLeft: 16,
-    alignSelf: 'flex-start',
-    fontSize: 16
+    paddingLeft:16,
+    alignSelf:'flex-start',
+    fontSize:16
+
   },
-  containerInput: {
-    height: 40,
-    width: 300,
-    borderRadius: 16,
+
+
+  containerinput:{
+    height:40,
+    width:300,
+    backgroundColor:'white',
+    borderRadius:16,
     backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
-    justifyContent: 'center',
-    paddingLeft: 20
+    elevation: 5, 
+
   },
-  input: {
-    height: 40,
-    width: 300,
-    paddingLeft: 16
+
+  input:{
+    height:40,
+    width:300,
+    paddingLeft:16
   },
-  containerBoton: {
+
+  ContainerBoton:{
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    paddingVertical: 40,
+
+  },
+
+  boton:{
+    width:60,
+    height:60,
+    backgroundColor:'#006501',
+    borderRadius:50,
+    borderWidth:5,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center',
+    overflow:'hidden'
+  },
+
+  boton2:{
+    height:40,
+    width:250,
+    backgroundColor:'white',
+    borderRadius:16,
+    backgroundColor: '#0f294c',
+    alignSelf:'center',
+    alignItems:'center',
+    justifyContent:'center',
+    marginVertical:10,
+  },
+
+  text2:{
+    color: 'white',
+    fontWeight:'bold',
+    fontSize:18
+  },
+
+  containerTogle:{
     flexDirection: 'row',
-    justifyContent: 'space-evenly'
-  },
-  boton: {
-    width: 44,
-    height: 44,
-    backgroundColor: '#d9d9d9',
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'center',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+    width: '80%',
+    alignSelf: 'center',
   },
 
-  boton2: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#d9d9d9',
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+  
 
-  botonSubir: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#d9d9d9',
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: '#0f294c',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+///////////////////////////////////////////////////////////////////////////////
 
-  qr: {
-    marginTop: 20,
-    width: 120,
-    height: 120,
-    backgroundColor: '#ececec',
-    borderWidth: 5,
-    borderColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  botonCarrusel: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#93182A',
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+
 });
