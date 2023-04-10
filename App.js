@@ -1,19 +1,22 @@
 import React from 'react';
 import { StatusBar,useState } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground,Image,TextInput, Switch, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground,Image,TextInput, Switch, ScrollView, DatePickerIOS} from 'react-native';
 
 
-import Logo from "../smart-assistance/src/Logo34.png";
-import admin from "./src/admin.png";
-import puerta from "./src/puerta.png";
+import Logo from "../smart-assistance/src/fondo.jpeg";
+import { DatePickerIOSBase } from 'react-native';
+import menu from "./src/menu.png";
+import user from "./src/user.png";
+
 
 
 export default function App() {
 
 
   const Log = Logo;
-  const puerta1 = puerta;
-  const admin1 = admin;
+  const menu1 = menu;
+  const user1 = user;
+
 
 
 
@@ -23,80 +26,98 @@ export default function App() {
       <View style={styles.subContainer1}>
         <ImageBackground source={Log} resizeMode={'cover'} style={styles.image} >
 
+        <View style={{flexDirection:'row',alignItems:'center', justifyContent:'space-between'}}>
 
-        <View style = {{backgroundColor:'white', paddingHorizontal:6 ,paddingVertical:6 ,borderWidth:2 ,borderRadius:12}}>
-          <Text style={{color : '#0E294B', fontSize:20, fontWeight: 'bold' }} >
-            Smart City
-          </Text>
+            <View style= {styles.boton}>
+                <Image
+                source={menu1}
+                style={{ width: '50%', height: '80%' }}
+                resizeMode={'cover'}
+                />
+              
+            </View>
+
+            <View style = {{backgroundColor:'white', paddingHorizontal:6 ,paddingVertical:6 ,borderWidth:2 ,borderRadius:12, height:44}}>
+              <Text style={{color : '#0E294B', fontSize:20, fontWeight: 'bold' }} >
+                Smart City
+              </Text>
+            </View>
+
+            <View style= {styles.boton}>
+            <Image
+                source={user1}
+                style={{ width: '60%', height: '80%' }}
+                resizeMode={'cover'}
+                />
+              
+            </View>
+            
         </View>
+
+
         </ImageBackground>
 
       </View>
 
-      <View style={styles.subContainer2}>
-        <View style={styles.info}>
-          <View style= {styles.ContainerInfo}>
+        <View style={styles.subContainer2}>
+          <View  style={{color : '#0E294B', fontSize:20, fontWeight: 'bold', alignItems:'center',gap:10 , paddingVertical:10 }}>
+            <Text> Domingo 26 - Marzo</Text>
+            <Text> 16:40:25</Text>
+          </View>
 
-            <Text style={styles.text}> Email </Text>
-            <View style={styles.containerinput}>
+
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
+          <Text>Hora de Entrada</Text>
+          <View style={styles.containerinput}>
+
               <TextInput style={styles.input}
-                placeholder="Ingrese su email"
+                placeholder="08:00" 
               />
+          </View>
+        </View>
 
+
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
+          <Text>Hora de Salida</Text>
+          <View style={styles.containerinput}>
+              <TextInput style={styles.input}
+                placeholder="16:00" 
+              />
+          </View>
+        </View>
+
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingVertical:10, width:240,} }>
+          <Text>Hora totales</Text>
+          <View style={styles.containerinput}>
+              <TextInput style={styles.input}
+                placeholder="44" 
+              />
+          </View>
+        </View>
+
+
+        <View style={{flexDirection:'row', justifyContent:'space-between', width:'100%',padding:30, marginTop:160 }}>
+          <View>
+            <View style= {styles.botonCarrusel}>
+              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >L</Text>
             </View>
 
           </View>
-        </View>
 
-        <View style={styles.info}>
-          <View style= {styles.ContainerInfo}>
-            <Text style={styles.text}> Contraseña </Text>
-            <View style={styles.containerinput}>
-              <TextInput style={styles.input}
-                placeholder="********" secureTextEntry
-              />
+          <View style={{flexDirection:'row', justifyContent:'space-evenly', gap:20}} > 
+            <View style= {styles.botonCarrusel}>
+              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >H</Text>
             </View>
+            <View style= {styles.botonCarrusel}>
+              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >N</Text>
+            </View>
+            <View style= {styles.botonCarrusel}>
+              <Text style = {{color : 'white', fontSize:20, fontWeight: 'bold' }} >M</Text>
+            </View>
+
+
           </View>
-        </View>
 
-        <View style={styles.ContainerBoton}>
-          <View style= {styles.boton}>
-          <Image
-                source={puerta1}
-                style={{ width: '101%', height: '100%'}}
-                resizeMode={'cover'}
-                />
-          </View>
-          <View style= {styles.boton}>
-          <Image
-                source={admin1}
-                style={{ width: '105%', height: '105%' }}
-                resizeMode={'cover'}
-                />
-          </View>
-        </View>
-
-        <View style = {styles.boton2}>
-          <Text style={styles.text2} >
-            INGRESAR
-          </Text>
-        </View>
-
-        <View style = {styles.containerTogle}> 
-          <Text style = {{color : '#0f294c', fontSize:16 }}>
-            Recuerdame
-          </Text>
-          <Switch>
-          </Switch>
-        </View>
-
-        <View style = {styles.containerTogle}> 
-          <Text style = {{color : '#0f294c', fontSize:14, paddingRight:10 }} >¿Has olvidado tu contraseña?</Text>
-          <Text style = {{color : '#93182a', fontSize:14, textDecorationLine: 'underline'}} >Click Aquí</Text>
-        </View>
-
-        <View style = {styles.containerTogle}> 
-          <Text style = {{color : '#0f294c', fontSize:12 }}  >Registrarse</Text>
         </View>
 
 
@@ -107,7 +128,11 @@ export default function App() {
 
 
 
-      </View>    
+
+
+
+
+        </View>    
     </View>
   );
 }
@@ -121,24 +146,28 @@ const styles = StyleSheet.create({
   image:{
     flex:1,
     borderRadius:60,
-    justifyContent:'flex-end',
-    alignItems:'flex-end',
+  
+    
+
     padding:30
   },
 
   subContainer1: {
-    flex:0.35,
-    borderBottomLeftRadius:40,
+    flex:0.3,
     overflow: 'hidden',
+    borderBottomWidth:3,
+    borderColor:'#0f294c'
 
   },
 //////////////////////////////////////////////////////////////////////////////////
   subContainer2: {
-    flex:0.65,
+    flex:0.70,
+    
     width: '100%',
 
     backgroundColor: '#ececec',
-    paddingTop:40
+    paddingTop:40,
+    alignItems:'center'
     
     
 
@@ -170,22 +199,18 @@ const styles = StyleSheet.create({
 
   containerinput:{
     height:40,
-    width:300,
+    width:80,
     backgroundColor:'white',
     borderRadius:16,
-    backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5, 
+    justifyContent:'center',
+    alignItems:'center'
+    
 
-  },
-
-  input:{
-    height:40,
-    width:300,
-    paddingLeft:16
   },
 
   ContainerBoton:{
@@ -196,16 +221,29 @@ const styles = StyleSheet.create({
   },
 
   boton:{
-    width:60,
-    height:60,
-    backgroundColor:'#006501',
+    width:44,
+    height:44,
+    backgroundColor:'#ececec',
     borderRadius:50,
     borderWidth:5,
     borderColor:'white',
     justifyContent:'center',
-    alignItems:'center',
-    overflow:'hidden'
+    alignItems:'center'
   },
+
+  botonCarrusel:{
+    width:60,
+    height:60,
+    backgroundColor:'#93182A',
+    borderRadius:50,
+    borderWidth:5,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+
+
+
 
   boton2:{
     height:40,
